@@ -3,33 +3,24 @@ package recursividad;
 import javax.swing.JOptionPane;
 
 public class Menu {
-
-    private static Constantes constantes = new Constantes();
-    int menuElegido;
     int opcionElegida;
 
-    public Menu() {
-    }
+    public Menu() {}
 
-    public void mostrarMenu(String msgAMostrar) {
-        Object[] botones = obtenerBotones();
-
+    public void mostrarMenu() {
         this.opcionElegida = Integer.parseInt(JOptionPane.showInputDialog(
                 null,
-                msgAMostrar)
+                "Introduzca una opcion\n"
+                        + "1. Invertir cifras de un numero\n"
+                        + "2. Imprimir string letra por letra\n"
+                        + "3. LLenar vector, mostrar su contenido y obtener valor mayor\n"
+                        + "4. Sumar numeros\n"
+                        + "5. Construir tabla de multiplicar\n"
+                        + "6. Sumar digitos de un numero\n\n")
         );
     }
 
-    private Object[] obtenerBotones() {
-        return new Object[]{
-            "Invertir cifras",
-            "Imprimir string",
-            "LLenar vector",
-            "Sumar numeros",
-            "Tabla de multiplicar",
-            "Sumar digitos de un numero",
-            "Volver"
-        };
-
+    public int getOpcionElegida() {
+        return this.opcionElegida;
     }
 }
