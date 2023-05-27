@@ -42,16 +42,36 @@ public class Metodos {
     }
 
     private void llenarVectorYObtenerDatos() {
-        int tamanoVector = Integer.parseInt(obtenerDatos("Ingrese el largo del vector a construir"));
+        int tamanoVector = Integer.parseInt(obtenerDatos(
+                "Ingrese el largo del vector a construir")
+        );
         int[] vectorVacio = new int[tamanoVector];
-        
-        metodoRecursivo.llenarVectorYObtenerDatosR(vectorVacio,tamanoVector,0,0);
+
+        metodoRecursivo.llenarVectorYObtenerDatosR(
+                vectorVacio,
+                tamanoVector,
+                0,
+                0
+        );
     }
 
     private void sumarNumeros() {
+        int tamanoVector = Integer.parseInt(obtenerDatos(
+                "Cuantos numeros quiere sumar?")
+        );
+        int[] vectorVacio = new int[tamanoVector];
+        int suma = 0;
+
+        metodoRecursivo.sumarNumerosR(vectorVacio, tamanoVector, 0, suma);
+
     }
 
     private void mostrarTablaMultiplicacion() {
+        int numeroAMultiplicar = Integer.parseInt(obtenerDatos(
+                "Ingrese el con el que desea construir la tabla de multiplicar")
+        );
+
+        metodoRecursivo.mostrarTablaMultiplicacionR(numeroAMultiplicar,10,0);
     }
 
     private void sumarDigitosDeNumero() {
