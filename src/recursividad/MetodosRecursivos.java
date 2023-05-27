@@ -1,16 +1,28 @@
 package recursividad;
 
 import java.util.Arrays;
-import javax.swing.JOptionPane;
 
 public class MetodosRecursivos {
+
+    public static Utils utils = new Utils();
+
+    public void invertirNumeroR(int numero, String numeroInvertido) {
+        numeroInvertido += utils.toStr(numero % 10);
+
+        if (numero / 10 == 0) {
+            utils.print(numeroInvertido);
+            return;
+        }
+
+        invertirNumeroR(numero / 10, numeroInvertido);
+    }
 
     public void imprimirStringR(String string, int i) {
         if (string.length() == i) {
             return;
         }
 
-        print(string.charAt(i));
+        utils.print(string.charAt(i));
         imprimirStringR(string, i + 1);
     }
 
@@ -23,16 +35,16 @@ public class MetodosRecursivos {
         if (vector.length == i) {
             String vectorString = Arrays.toString(vector);
 
-            print(String.format(
+            utils.print(String.format(
                     "Vector: %s\nValor Mayor: %d",
                     vectorString, valorMayor)
             );
             return;
         }
 
-        int numero = toNum(obtenerDato(String.format(
+        int numero = utils.toNum(utils.obtenerDato(String.format(
                 "Ingrese el numero (%d/%d)",
-                i+1,
+                i + 1,
                 tamanoVector)
         ));
 
@@ -52,51 +64,45 @@ public class MetodosRecursivos {
             int suma
     ) {
         if (vector.length == i) {
-            print(String.format("La suma es: %d", suma));
+            utils.print(String.format("La suma es: %d", suma));
             return;
         }
 
-        int numero = toNum(obtenerDato(String.format(
+        int numero = utils.toNum(utils.obtenerDato(String.format(
                 "Ingrese el numero (%d/%d)",
-                i+1,
+                i + 1,
                 tamanoVector)
         ));
-        
+
         vector[i] = numero;
-                
+
         suma += numero;
-        
-        sumarNumerosR(vector, tamanoVector, i+1, suma);
+        sumarNumerosR(vector, tamanoVector, i + 1, suma);
     }
-    
-    public void mostrarTablaMultiplicacionR(int numero, int limite, int i){
-        if(i>=limite){
+
+    public void mostrarTablaMultiplicacionR(int numero, int limite, int i) {
+        if (i >= limite) {
             return;
         }
         
-        print(String.format(
+        utils.print(String.format(
                 "%d * %d : %d",
                 numero,
                 i,
-                numero *i)
-        );
+                numero * i
+        ));
+
+        mostrarTablaMultiplicacionR(numero, limite, i + 1);
+    }
+
+    public void sumarDigitosDeNumeroR(int numero, int suma) {
+        suma += numero % 10;
         
-        mostrarTablaMultiplicacionR(numero, limite, i+1);
-    }
-
-    private String obtenerDato(String datoAPedir) {
-        return JOptionPane.showInputDialog(null, datoAPedir);
-    }
-
-    private void print(String s) {
-        System.out.println(s);
-    }
-
-    private void print(char c) {
-        System.out.println(c);
-    }
-
-    private int toNum(String n) {
-        return Integer.parseInt(n);
+        if (numero/10 == 0) {
+            utils.print(utils.toStr(suma));
+            return;
+        }
+        
+        sumarDigitosDeNumeroR(numero / 10, suma);
     }
 }

@@ -5,11 +5,14 @@ import javax.swing.JOptionPane;
 public class Metodos {
 
     public MetodosRecursivos metodoRecursivo = new MetodosRecursivos();
+    public static Utils utils = new Utils();
 
+    
+    
     public void llamarMetodo(int metodoALLamar) {
         switch (metodoALLamar) {
             case Constantes.MENU_INVERTIR_CIFRAS:
-                invertirCifras();
+                invertirNumero();
                 break;
             case Constantes.MENU_IMPRIMIR_STRING:
                 imprimirString();
@@ -31,18 +34,19 @@ public class Metodos {
         }
     }
 
-    private void invertirCifras() {
+    private void invertirNumero() {
+        int numeroAInvertir = utils.toNum(utils.obtenerDato("Ingrese el numero a invertir"));
+        metodoRecursivo.invertirNumeroR(numeroAInvertir,"");
     }
 
     private void imprimirString() {
-        String stringAImprimir = obtenerDatos("Ingrese una palabra");
-
+        String stringAImprimir = utils.obtenerDato("Ingrese una palabra");
         metodoRecursivo.imprimirStringR(stringAImprimir, 0);
-        System.out.println("Palabra completa: " + stringAImprimir);
+        utils.print("Palabra completa: " + stringAImprimir);
     }
 
     private void llenarVectorYObtenerDatos() {
-        int tamanoVector = Integer.parseInt(obtenerDatos(
+        int tamanoVector = utils.toNum(utils.obtenerDato(
                 "Ingrese el largo del vector a construir")
         );
         int[] vectorVacio = new int[tamanoVector];
@@ -56,18 +60,17 @@ public class Metodos {
     }
 
     private void sumarNumeros() {
-        int tamanoVector = Integer.parseInt(obtenerDatos(
+        int tamanoVector = utils.toNum(utils.obtenerDato(
                 "Cuantos numeros quiere sumar?")
         );
         int[] vectorVacio = new int[tamanoVector];
         int suma = 0;
 
         metodoRecursivo.sumarNumerosR(vectorVacio, tamanoVector, 0, suma);
-
     }
 
     private void mostrarTablaMultiplicacion() {
-        int numeroAMultiplicar = Integer.parseInt(obtenerDatos(
+        int numeroAMultiplicar = utils.toNum(utils.obtenerDato(
                 "Ingrese el con el que desea construir la tabla de multiplicar")
         );
 
@@ -75,9 +78,10 @@ public class Metodos {
     }
 
     private void sumarDigitosDeNumero() {
-    }
-
-    private String obtenerDatos(String datoAPedir) {
-        return JOptionPane.showInputDialog(null, datoAPedir);
+         int numero = utils.toNum(utils.obtenerDato(
+                "Ingrese el numero")
+        );
+        
+       metodoRecursivo.sumarDigitosDeNumeroR(numero,0);
     }
 }
