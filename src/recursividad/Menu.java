@@ -16,7 +16,8 @@ public class Menu {
                         + "3. LLenar vector, mostrar su contenido y obtener valor mayor\n"
                         + "4. Sumar numeros\n"
                         + "5. Construir tabla de multiplicar\n"
-                        + "6. Sumar digitos de un numero\n\n")
+                        + "6. Sumar digitos de un numero\n\n"
+                        + "7. Salir\n\n")
         );
     }
 

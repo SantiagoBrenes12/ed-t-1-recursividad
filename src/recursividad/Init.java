@@ -7,7 +7,6 @@ public class Init {
         menuPrincipal.mostrarMenu();
 
         int opcionElegida = menuPrincipal.getOpcionElegida();
-
         llamarAMetodoElegido(opcionElegida);
     }
     

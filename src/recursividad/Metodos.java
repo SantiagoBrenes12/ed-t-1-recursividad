@@ -6,10 +6,10 @@ public class Metodos {
 
     public MetodosRecursivos metodoRecursivo = new MetodosRecursivos();
     public static Utils utils = new Utils();
+    public Init init = new Init();
 
-    
-    
     public void llamarMetodo(int metodoALLamar) {
+
         switch (metodoALLamar) {
             case Constantes.MENU_INVERTIR_CIFRAS:
                 invertirNumero();
@@ -29,14 +29,16 @@ public class Metodos {
             case Constantes.MENU_SUMAR_DIGITOS:
                 sumarDigitosDeNumero();
                 break;
-            default:
-                throw new AssertionError();
+            case Constantes.SALIR:
+                return;
         }
+
+        init.mostrarMenuPrincipal();
     }
 
     private void invertirNumero() {
         int numeroAInvertir = utils.toNum(utils.obtenerDato("Ingrese el numero a invertir"));
-        metodoRecursivo.invertirNumeroR(numeroAInvertir,"");
+        metodoRecursivo.invertirNumeroR(numeroAInvertir, "");
     }
 
     private void imprimirString() {
@@ -74,14 +76,14 @@ public class Metodos {
                 "Ingrese el con el que desea construir la tabla de multiplicar")
         );
 
-        metodoRecursivo.mostrarTablaMultiplicacionR(numeroAMultiplicar,10,0);
+        metodoRecursivo.mostrarTablaMultiplicacionR(numeroAMultiplicar, 10, 1);
     }
 
     private void sumarDigitosDeNumero() {
-         int numero = utils.toNum(utils.obtenerDato(
+        int numero = utils.toNum(utils.obtenerDato(
                 "Ingrese el numero")
         );
-        
-       metodoRecursivo.sumarDigitosDeNumeroR(numero,0);
+
+        metodoRecursivo.sumarDigitosDeNumeroR(numero, 0);
     }
 }

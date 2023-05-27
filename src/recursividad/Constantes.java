@@ -8,4 +8,5 @@ public class Constantes {
     public static final int MENU_SUMAR_NUMEROS = 4;
     public static final int MENU_TABLA_MULTIPLICAR = 5;
     public static final int MENU_SUMAR_DIGITOS = 6;
+    public static final int SALIR = 7;
 }
